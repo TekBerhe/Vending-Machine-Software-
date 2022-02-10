@@ -1,6 +1,10 @@
 package com.techelevator;
 
+import com.techelevator.filereader.InventoryFileReader;
 import com.techelevator.view.Menu;
+
+import java.util.Objects;
+import java.util.Scanner;
 
 /*
  * This class should control the workflow of the application, but not do any other work
@@ -38,11 +42,20 @@ public class CateringSystemCLI extends Menu {
 
 		menu.showWelcomeMessage();
 
+		menu.displayOptions();
 
 
-		while (true) {
+//		boolean hasFileLocation = false;
+//		while (hasFileLocation = true) {
 
-			if()
+//		menu.itemDisplay();
+
+
+		String userSelection = menu.displayOptions();
+			if(Objects.equals(userSelection, "1")){
+				menu.itemDisplay();
+				menu.displayOptions();
+			}
 
 
 			/*
@@ -55,7 +68,7 @@ public class CateringSystemCLI extends Menu {
 				THEN go to the purchase menu
 			*/
 		}
-	}
+
 
 	/*
 <<<<<<<<<<<<<<<	 * This starts the application, but ***YOU SHOULDN'T CHANGE THIS***  >>>>>>>>>>>>>>>>>>>>>>>>>

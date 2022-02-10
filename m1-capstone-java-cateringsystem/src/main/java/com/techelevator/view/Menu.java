@@ -1,5 +1,8 @@
 package com.techelevator.view;
 
+import com.techelevator.filereader.InventoryFileReader;
+
+import java.io.FileReader;
 import java.util.Scanner;
 
 /*
@@ -14,16 +17,23 @@ public class Menu {
 	
 	private static final Scanner in = new Scanner(System.in);
 
+
 	public void showWelcomeMessage() {
 		System.out.println("*************************");
 		System.out.println("**     Weyland Corp.   **");
 		System.out.println("**      Catering       **");
 		System.out.println("*************************");
+	}
+
+	public String displayOptions(){
 		System.out.println("(1) Display Catering Item");
 		System.out.println("(2) Order");
 		System.out.println("(3) Quit");
 		System.out.println("Please make a selection...");
-		String selection = in.nextLine();
+		return in.nextLine();
+	}
+
+	public void itemDisplay(){
 	}
 
 // 1. we need to make sure the file has the items using currentLine = fileReader.nextline()

@@ -10,27 +10,30 @@ import java.util.Scanner;
 /*
     This class should contain any and all details of access to the inventory file
  */
-public class InventoryFileReader extends CateringSystem {
+public class InventoryFileReader {
 
     private String inventoryFileName;
+    private String products;
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<constructor>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     
 
     public InventoryFileReader(String inventoryFileName) {
         this.inventoryFileName = inventoryFileName;
+    }
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<File Reader>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        try (Scanner fileToRead = new Scanner("cateringsystem.csv");
-             PrintWriter printWriter = new PrintWriter(String.valueOf(fileToRead)))
-        {
+    public String getFileReader() {
+
+        try (Scanner fileToRead = new Scanner(inventoryFileName);
+             PrintWriter printWriter = new PrintWriter(String.valueOf(fileToRead))) {
             while(fileToRead.hasNextLine()){
-                String currentLine = fileToRead.nextLine();
-                printWriter.println(currentLine);
-                {
-                }
-
+                String products = fileToRead.nextLine();
+                printWriter.println(products);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
+        return products;
     }
 }
+
