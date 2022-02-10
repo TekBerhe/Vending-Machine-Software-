@@ -5,4 +5,10 @@ package com.techelevator;
     contain all the "work"
  */
 public class CateringSystem {
+
+
+//does this need to be in Menu class or CateringSystem class?
+
+    public void displayCateringItems(){}
+
 }

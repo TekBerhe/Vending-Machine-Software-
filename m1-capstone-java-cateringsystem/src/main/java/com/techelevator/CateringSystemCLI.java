@@ -9,7 +9,7 @@ import com.techelevator.view.Menu;
  * 
  * This class should control the logical workflow of the application, but it should do no other
  * work.  It should communicate with the user (System.in and System.out) using the Menu class and ask
- * the CateringSystem class to do any work and pass the results between those 2 classes.
+ * the ***CateringSystem.java*** class to do any work and pass the results between those 2 classes.
  */
 public class CateringSystemCLI {
 
@@ -22,6 +22,8 @@ public class CateringSystemCLI {
 	 */
 	private Menu menu;
 
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<CONSTRUCTOR>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 	public CateringSystemCLI(Menu menu) {
 		this.menu = menu;
 	}
@@ -29,26 +31,34 @@ public class CateringSystemCLI {
 	/*
 	 * Your application starts here
 	 */
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<METHOD>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 	public void run() {
 
 		menu.showWelcomeMessage();
 
 
+
 		while (true) {
+
+			if()
+
+
 			/*
 			Display the Starting Menu and get the users choice.
 			Remember all uses of System.out and System.in should be in the menu
 			
-			IF the User Choice is Display Vending Machine Items, 
+			IF the User Choice is Display Vending Machine Items **(1) Display Catering Items**,
 				THEN display vending machine items
-			ELSE IF the User's Choice is Purchase,
+			ELSE IF the User's Choice is Purchase **(2)Purchase**,
 				THEN go to the purchase menu
 			*/
 		}
 	}
 
 	/*
-	 * This starts the application, but you shouldn't need to change it.  
+<<<<<<<<<<<<<<<	 * This starts the application, but ***YOU SHOULDN'T CHANGE THIS***  >>>>>>>>>>>>>>>>>>>>>>>>>
 	 */
 	public static void main(String[] args) {
 		Menu menu = new Menu();
