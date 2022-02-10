@@ -15,7 +15,8 @@ import java.util.Scanner;
  * work.  It should communicate with the user (System.in and System.out) using the Menu class and ask
  * the ***CateringSystem.java*** class to do any work and pass the results between those 2 classes.
  */
-public class CateringSystemCLI extends Menu {
+public class CateringSystemCLI {
+
 
 	/*
 	 * The menu class is instantiated in the main() method at the bottom of this file.  
@@ -42,8 +43,10 @@ public class CateringSystemCLI extends Menu {
 
 		menu.showWelcomeMessage();
 
-		menu.displayOptions();
+		menu.getInputFromUser();
+		//System.out.println(menu.);n
 
+		menu.itemDisplay();
 
 //		boolean hasFileLocation = false;
 //		while (hasFileLocation = true) {
@@ -51,12 +54,14 @@ public class CateringSystemCLI extends Menu {
 //		menu.itemDisplay();
 
 
-		String userSelection = menu.displayOptions();
+
+/*
+		String userSelection = menu.getInputFromUser();
 			if(Objects.equals(userSelection, "1")){
 				menu.itemDisplay();
-				menu.displayOptions();
+				menu.getInputFromUser();
 			}
-
+*/
 
 			/*
 			Display the Starting Menu and get the users choice.

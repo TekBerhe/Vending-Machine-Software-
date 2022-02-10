@@ -1,8 +1,10 @@
 package com.techelevator.view;
 
+import com.techelevator.CateringSystem;
 import com.techelevator.filereader.InventoryFileReader;
 
 import java.io.FileReader;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -16,7 +18,7 @@ import java.util.Scanner;
 public class Menu {
 	
 	private static final Scanner in = new Scanner(System.in);
-
+	public Menu(){}
 
 	public void showWelcomeMessage() {
 		System.out.println("*************************");
@@ -25,7 +27,7 @@ public class Menu {
 		System.out.println("*************************");
 	}
 
-	public String displayOptions(){
+	public String getInputFromUser(){
 		System.out.println("(1) Display Catering Item");
 		System.out.println("(2) Order");
 		System.out.println("(3) Quit");

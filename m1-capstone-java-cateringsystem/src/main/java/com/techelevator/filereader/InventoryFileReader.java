@@ -2,9 +2,11 @@ package com.techelevator.filereader;
 
 import com.techelevator.CateringSystem;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -13,7 +15,7 @@ import java.util.Scanner;
 public class InventoryFileReader {
 
     private String inventoryFileName;
-    private String products;
+    private List<String> products;
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<constructor>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     
 
@@ -22,16 +24,14 @@ public class InventoryFileReader {
     }
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<File Reader>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    public String getFileReader() {
+    public List<String> getFileReader() {
 
-        try (Scanner fileToRead = new Scanner(inventoryFileName);
-             PrintWriter printWriter = new PrintWriter(String.valueOf(fileToRead))) {
-            while(fileToRead.hasNextLine()){
-                String products = fileToRead.nextLine();
-                printWriter.println(products);
+         File file = new File(inventoryFileName);
+        try (Scanner fileScanner= new Scanner(inventoryFileName);) {
+            while(fileScanner.hasNextLine()){
+                String line = fileScanner.nextLine();
+                products.add(line);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
         return products;
     }
