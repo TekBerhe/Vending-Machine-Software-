@@ -11,7 +11,7 @@ import com.techelevator.view.Menu;
  * work.  It should communicate with the user (System.in and System.out) using the Menu class and ask
  * the ***CateringSystem.java*** class to do any work and pass the results between those 2 classes.
  */
-public class CateringSystemCLI {
+public class CateringSystemCLI extends Menu {
 
 	/*
 	 * The menu class is instantiated in the main() method at the bottom of this file.  

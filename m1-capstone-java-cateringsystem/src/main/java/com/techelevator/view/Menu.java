@@ -26,7 +26,8 @@ public class Menu {
 		String selection = in.nextLine();
 	}
 
-
+// 1. we need to make sure the file has the items using currentLine = fileReader.nextline()
+// 2. pass the fileReader to the selection input.
 
 
 
