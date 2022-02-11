@@ -12,13 +12,13 @@ import java.util.List;
  */
 public class CateringSystem {
 
-    InventoryFileReader fileReader;
-    List<String> inventoryList;
-
-    public CateringSystem(){
-        fileReader = new InventoryFileReader("test String");
-        inventoryList = fileReader.getFileReader();
-    };
+//    InventoryFileReader fileReader;
+//    List<String> inventoryList;
+//
+//    public CateringSystem(){
+//        fileReader = new InventoryFileReader("test String");
+//        inventoryList = fileReader.getFileReader();
+//    };
 
 //    public InventoryFileReader()
 //does this need to be in Menu class or CateringSystem class?
