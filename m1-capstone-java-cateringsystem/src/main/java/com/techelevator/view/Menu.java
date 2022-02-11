@@ -35,7 +35,9 @@ public class Menu {
 		return in.nextLine();
 	}
 
-	public void itemDisplay(){
+	public void displayError(String message) {
+		System.out.println("***** ERROR *****");
+		System.out.println(message);
 	}
 
 // 1. we need to make sure the file has the items using currentLine = fileReader.nextline()
