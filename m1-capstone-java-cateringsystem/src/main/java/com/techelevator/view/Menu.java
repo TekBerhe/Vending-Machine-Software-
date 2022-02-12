@@ -61,11 +61,17 @@ public class Menu {
 		}
 	}
 
-	public void showSubMenu(){
+	public String showSubMenu(){
 		System.out.println("(1) Add Money");
 		System.out.println("(2) Select Products");
 		System.out.println("(3) Complete Transaction");
-		System.out.println();
+		System.out.println("What would you like to do?");
+		return in.nextLine();
+	}
+
+	public String moneyToAdd(){
+		System.out.println("How much money would you like to add?");
+		 return in.nextLine();
 	}
 
 	public void displayError(String message) {

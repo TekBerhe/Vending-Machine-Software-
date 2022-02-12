@@ -54,11 +54,16 @@ public class CateringSystemCLI {
 				menu.showItemsForSale(inventory);
 			} else if (Objects.equals(selection, "2")) {
 				menu.showSubMenu();
+				//selection = menu.makeTheSelection();
 			} else if (Objects.equals(selection, "3")) {
 				menu.showQuit();
 				break;
 			}
 		}
+
+
+
+
 
 //		CateringItem Item = InventoryFileReader.
 //
