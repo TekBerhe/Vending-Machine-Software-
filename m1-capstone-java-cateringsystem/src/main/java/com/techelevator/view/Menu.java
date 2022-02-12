@@ -2,9 +2,11 @@ package com.techelevator.view;
 
 import com.techelevator.CateringSystem;
 import com.techelevator.filereader.InventoryFileReader;
+import com.techelevator.items.CateringItem;
 
 import java.io.FileReader;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /*
@@ -25,18 +27,34 @@ public class Menu {
 		System.out.println("**     Weyland Corp.   **");
 		System.out.println("**      Catering       **");
 		System.out.println("*************************");
-	}
-
-	public String getInputFromUser(){
 		System.out.println("(1) Display Catering Item");
 		System.out.println("(2) Order");
 		System.out.println("(3) Quit");
-		System.out.println("Please make a selection...");
+	}
+
+	public String getInputFromUser(){
+		System.out.println("Please select a number");
 		return in.nextLine();
 	}
 
-	public void itemDisplay(){
+	public void showItemsForSale(Map<String, CateringItem> inventory){
+		for (Map.Entry<String, CateringItem> mapEntry : inventory.entrySet()){
+			System.out.print(mapEntry.getValue().getProductCode());
+			System.out.println(mapEntry.getValue().getDesciption());
+			System.out.println(mapEntry.getValue().getPrice());
+		}
 	}
+
+//	public void displayInventory(){
+//		System.out.println(inventoryFileReader);
+//	}
+
+	public void displayError(String message) {
+		System.out.println("***** ERROR *****");
+		System.out.println(message);
+	}
+
+
 
 // 1. we need to make sure the file has the items using currentLine = fileReader.nextline()
 // 2. pass the fileReader to the selection input.
