@@ -27,31 +27,54 @@ public class Menu {
 		System.out.println("**     Weyland Corp.   **");
 		System.out.println("**      Catering       **");
 		System.out.println("*************************");
-		System.out.println("(1) Display Catering Item");
-		System.out.println("(2) Order");
-		System.out.println("(3) Quit");
 	}
 
-	public String getInputFromUser(){
-		System.out.println("Please select a number");
+	public String getInputFromUser(String filepath){
+		System.out.println("Please enter a file path");
 		return in.nextLine();
 	}
 
+	public void showSelectionMenu(){
+		System.out.println("(1) Display Catering Item");
+		System.out.println("(2) Order");
+		System.out.println("(3) Quit");
+		System.out.println("Please make a selection...");
+	}
+
+	public String makeTheSelection(){
+		return in.nextLine();
+	}
+
+
 	public void showItemsForSale(Map<String, CateringItem> inventory){
-		for (Map.Entry<String, CateringItem> mapEntry : inventory.entrySet()){
-			System.out.print(mapEntry.getValue().getProductCode());
-			System.out.println(mapEntry.getValue().getDesciption());
-			System.out.println(mapEntry.getValue().getPrice());
+		String productCode = "Product Code";
+		String description = "Description";
+		String qty = "Qty";
+		String price = "Price";
+		System.out.printf("%-18s %-25s %-10s %-10s %n", productCode, description, qty, price);
+		System.out.println();
+
+		for ( Map.Entry<String, CateringItem> mapEntry : inventory.entrySet()) {
+
+
+			System.out.printf( "%-18s %-25s %-10s %-15s %n", mapEntry.getValue().getProductCode(), mapEntry.getValue().getDesciption(), mapEntry.getValue().getStartingQuantity(), mapEntry.getValue().getPrice());
 		}
 	}
 
-//	public void displayInventory(){
-//		System.out.println(inventoryFileReader);
-//	}
+	public void showSubMenu(){
+		System.out.println("(1) Add Money");
+		System.out.println("(2) Select Products");
+		System.out.println("(3) Complete Transaction");
+		System.out.println();
+	}
 
 	public void displayError(String message) {
 		System.out.println("***** ERROR *****");
 		System.out.println(message);
+	}
+
+	public void showQuit(){
+		System.out.println("THANKS FOR CHOOSING SPAGHETTI CODE");
 	}
 
 

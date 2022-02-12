@@ -1,55 +1,68 @@
 package com.techelevator;
-
 import com.techelevator.filereader.InventoryFileReader;
 import com.techelevator.items.CateringItem;
 import com.techelevator.view.Menu;
-
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Scanner;
+import java.util.TreeMap;
 
 
 public class CateringSystemCLI {
 
+	public static void main(String[] args) {
+		Menu menu = new Menu();
+		CateringSystemCLI cli = new CateringSystemCLI(menu);
+		cli.run();
+	}
 //	 * The menu class is instantiated in the main() method at the bottom of this file.
 //	 * It is the only class instantiated in the starter code.
 //	 * You will need to instantiate all other classes using the new keyword before you can use them.
 //	 *
 //	 * Remember every class and data structure is a data types and can be passed as arguments to methods or constructors.
-
 	private Menu menu;
 
 	public CateringSystemCLI(Menu menu) {
 		this.menu = menu;
 	}
-
 	// Your application starts here
-
 	public void run() {
+
+		InventoryFileReader inventoryBuilder = null;
+		boolean hasFileLocation = false;
+		while(!hasFileLocation) {
+			String inventoryPath = menu.getInputFromUser("Path to inventory file: ");
+			try {
+				inventoryBuilder = new InventoryFileReader(inventoryPath);
+				hasFileLocation = true;
+			} catch (FileNotFoundException e) {
+				menu.displayError("File not found.");
+			}
+		}
+
+		Map<String, CateringItem> inventory = inventoryBuilder.getInventory();
 
 		menu.showWelcomeMessage();
 
-		InventoryFileReader inventoryBuilder = null;
-				try {
-					inventoryBuilder = new InventoryFileReader("cateringsystem.csv");
+		menu.showSelectionMenu();
 
-				} catch (FileNotFoundException e) {
-					menu.displayError(" File not found");
-				}
+		while(true) {
+
+			String selection = menu.makeTheSelection();
+
+			if (Objects.equals(selection, "1")) {
+				menu.showItemsForSale(inventory);
+			} else if (Objects.equals(selection, "2")) {
+				menu.showSubMenu();
+			} else if (Objects.equals(selection, "3")) {
+				menu.showQuit();
+				break;
 			}
+		}
 
-		Map<String, CateringItem> inventory;
-
-//		CateringItem selectedItem = menu.getInputFromUser();
-//		if(Objects.equals(userSelection123, "1")){
-//		}
-
-//			//catches exception from inventoryFileReader
-//			} catch (FileNotFoundException e) {
-//				menu.displayError("File not found.");
-//			}
+//		CateringItem Item = InventoryFileReader.
+//
+//		Map<String, CateringItem> Inventory =
 
 		/*
 			Display the Starting Menu and get the users choice.
@@ -62,12 +75,7 @@ public class CateringSystemCLI {
 			*/
 
 
-
 //<<<<<<<<<<<<<<<	 * This starts the application, but ***YOU SHOULDN'T CHANGE THIS***  >>>>>>>>>>>>>>>>>>>>>>>>>
 
-	public static void main(String[] args) {
-		Menu menu = new Menu();
-		CateringSystemCLI cli = new CateringSystemCLI(menu);
-		cli.run();
 	}
 }

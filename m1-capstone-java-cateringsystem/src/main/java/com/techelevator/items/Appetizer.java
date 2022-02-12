@@ -2,10 +2,8 @@ package com.techelevator.items;
 
 public class Appetizer extends CateringItem {
 
-    public Appetizer(String productCode, String desciption, double price) {
-        super(productCode, desciption, price);
+
+    public Appetizer(String productCode, String desciption, int startingQuantity, double price) {
+        super(productCode, desciption, startingQuantity, price);
     }
-
-
-
 }

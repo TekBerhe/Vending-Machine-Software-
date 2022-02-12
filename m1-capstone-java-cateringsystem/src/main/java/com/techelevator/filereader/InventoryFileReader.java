@@ -1,9 +1,7 @@
 package com.techelevator.filereader;
 
 import com.techelevator.CateringSystem;
-
 import com.techelevator.items.*;
-
 import javax.print.DocFlavor;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -61,16 +59,20 @@ public class InventoryFileReader {
         String productCode = parts[1];
         String description = parts[2];
         double price = Double.parseDouble(parts[3]);
+        int startingQuantity = 25;
 
         if (category.equalsIgnoreCase("A")) {
-            newItem = new Appetizer(productCode, description, price);
+            newItem = new Appetizer(productCode, description, (int) startingQuantity, price);
         } else if (category.equalsIgnoreCase("B")) {
-            newItem = new Beverage(productCode, description, price);
+            newItem = new Beverage(productCode, description, (int) startingQuantity, price);
         } else if (category.equalsIgnoreCase("D")) {
-            newItem = new Desert(productCode, description, price);
+            newItem = new Desert(productCode, description, (int) startingQuantity, price);
         } else if (category.equalsIgnoreCase("E")) {
-            newItem = new Entree(productCode, description, price);
+            newItem = new Entree(productCode, description, (int) startingQuantity, price);
         }
+
+
+
         return newItem;
     }
 }
