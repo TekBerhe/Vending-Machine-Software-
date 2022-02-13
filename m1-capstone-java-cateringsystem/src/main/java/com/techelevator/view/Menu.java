@@ -38,6 +38,7 @@ public class Menu {
 		System.out.println("(1) Display Catering Item");
 		System.out.println("(2) Order");
 		System.out.println("(3) Quit");
+		System.out.println();
 		System.out.println("Please make a selection...");
 	}
 

@@ -52,6 +52,8 @@ public class CateringSystemCLI {
 
 			if (Objects.equals(selection, "1")) {
 				menu.showItemsForSale(inventory);
+				System.out.println();
+				menu.showSelectionMenu();
 			} else if (Objects.equals(selection, "2")) {
 				menu.showSubMenu();
 				//selection = menu.makeTheSelection();
