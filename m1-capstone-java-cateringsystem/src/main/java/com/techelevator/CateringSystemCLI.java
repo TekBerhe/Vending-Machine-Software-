@@ -56,6 +56,12 @@ public class CateringSystemCLI {
 				menu.showSelectionMenu();
 			} else if (Objects.equals(selection, "2")) {
 				menu.showSubMenu();
+				while(true){
+					String secondSelection = menu.makeTheSelection();
+					if (Objects.equals(selection, "1")){
+						System.out.println("CONGRATS");
+					}
+				}
 				//selection = menu.makeTheSelection();
 			} else if (Objects.equals(selection, "3")) {
 				menu.showQuit();

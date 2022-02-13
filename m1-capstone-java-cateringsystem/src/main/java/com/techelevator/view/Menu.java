@@ -80,6 +80,11 @@ public class Menu {
 		System.out.println(message);
 	}
 
+	public void invalidAmount(String message) {
+		System.out.println("***** ERROR *****");
+		System.out.println(message);
+	}
+
 	public void showQuit(){
 		System.out.println("THANKS FOR CHOOSING SPAGHETTI CODE");
 	}
