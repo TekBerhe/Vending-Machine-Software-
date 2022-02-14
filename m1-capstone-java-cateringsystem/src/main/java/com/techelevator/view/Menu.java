@@ -1,6 +1,7 @@
 package com.techelevator.view;
 
 import com.techelevator.CateringSystem;
+import com.techelevator.CateringSystemCLI;
 import com.techelevator.filereader.InventoryFileReader;
 import com.techelevator.items.CateringItem;
 
@@ -20,7 +21,9 @@ import java.util.Scanner;
 public class Menu {
 	
 	private static final Scanner in = new Scanner(System.in);
+	public CateringSystem cateringSystem = new CateringSystem();
 	public Menu(){}
+	private CateringSystemCLI cli;
 
 	public void showWelcomeMessage() {
 		System.out.println("*************************");
@@ -46,6 +49,15 @@ public class Menu {
 		return in.nextLine();
 	}
 
+	public int makeTheSelectionInteger(){
+		return Integer.parseInt(in.nextLine());
+	}
+
+	public String makeSecondSelection(){
+		return in.nextLine();
+	}
+
+
 
 	public void showItemsForSale(Map<String, CateringItem> inventory){
 		String productCode = "Product Code";
@@ -62,17 +74,26 @@ public class Menu {
 		}
 	}
 
-	public String showSubMenu(){
+	public void showSubMenu(){
 		System.out.println("(1) Add Money");
 		System.out.println("(2) Select Products");
 		System.out.println("(3) Complete Transaction");
+		System.out.println("Current Account Balance: $" + cateringSystem.getCurrentBalance());
+		System.out.println("");
 		System.out.println("What would you like to do?");
-		return in.nextLine();
 	}
 
-	public String moneyToAdd(){
+	public void showUpdatedSubMenu(){
+		System.out.println("(1) Add Money");
+		System.out.println("(2) Select Products");
+		System.out.println("(3) Complete Transaction");
+		System.out.println("");
+		System.out.println("What would you like to do?");
+	}
+
+	public double moneyToAdd(){
 		System.out.println("How much money would you like to add?");
-		 return in.nextLine();
+		 return Double.parseDouble(in.nextLine());
 	}
 
 	public void displayError(String message) {
@@ -80,9 +101,20 @@ public class Menu {
 		System.out.println(message);
 	}
 
+	public void enterProductCode(){
+		System.out.println("");
+		System.out.println("Please Enter a Product Code...");
+	}
+
+	public void enterQuantity(){
+		System.out.println("Please Enter Amount to Purchase...");
+	}
+
 	public void invalidAmount(String message) {
 		System.out.println("***** ERROR *****");
-		System.out.println(message);
+		System.out.println("Invalid Amount Entered");
+		System.out.println("Must Add Less Than $500 At Once");
+		System.out.println("Total Balance Cannot Exceed $1500");
 	}
 
 	public void showQuit(){

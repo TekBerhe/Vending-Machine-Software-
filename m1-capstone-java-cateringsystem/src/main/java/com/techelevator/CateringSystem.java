@@ -6,10 +6,7 @@ import com.techelevator.view.Menu;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
     This class should encapsulate all the functionality of the Catering system, meaning it should
@@ -19,31 +16,41 @@ public class CateringSystem {
 
     private Menu menu;
 
-    private double currentBalance = 0;
-    private Map<String, Double> shoppingCart= new HashMap<>();
+    private double currentBalance;
+    private List<Object> shoppingCart = new ArrayList<>();
 
-    public CateringSystem(double currentBalance) {
+    InventoryFileReader inventoryBuilder;
+    public Map<String, CateringItem> inventory = new TreeMap<String, CateringItem>();
+
+    public CateringSystem() {
         this.currentBalance = currentBalance;
+    }
+
+    //for each loop to look through map and if the map has product code then put that item in cart.
+
+    public void addToCart(){
+        for (String currentItem : inventory.keySet()){
+            if (inventory.containsKey(menu.makeTheSelection())){
+                shoppingCart.add(currentItem);
+            }
+        }
     }
 
     public double getCurrentBalance() {
         return currentBalance;
     }
 
-    public double addMoney(double amountToAdd) {
-        if (currentBalance + amountToAdd <= 1500) {
-            if (amountToAdd < 500) {
-                currentBalance = amountToAdd + currentBalance;
-            }
-        } else {
-            menu.invalidAmount("Invalid Amount Entered");
-            menu.invalidAmount("Must Add Less Than $500 At Once");
-            menu.invalidAmount("Total Balance Cannot Exceed $1500");
+    public void addMoney(double amountToAdd) {
+        if (getCurrentBalance() + amountToAdd > 1500 || amountToAdd > 500) {
+            System.out.println("INVALID ENTRY");
+            //menu.invalidAmount();
         }
-        return currentBalance;
+        if (getCurrentBalance() + amountToAdd <= 1500 && amountToAdd <= 500) {
+            currentBalance += amountToAdd;
+        }
     }
-
 }
+
 /*
     so when the customer selects 2
      -- the menu class will show them the 3 options ---

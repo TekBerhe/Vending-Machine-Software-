@@ -11,8 +11,6 @@ public abstract class CateringItem {
     private double price;
     private int startingQuantity;
 
-
-
     public CateringItem(String productCode, String desciption, int startingQuantity, double price){
         this.productCode = productCode;
         this.desciption = desciption;
